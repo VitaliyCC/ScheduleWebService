@@ -1,5 +1,13 @@
-HELP.md
+
+.mvn
 target/
+HELP.md
+mvnw
+mvnw.cmd
+myapp.log
+webService.iml
+
+
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/

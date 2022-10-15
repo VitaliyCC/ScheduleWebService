@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class ScheduleService {
         this.reader = reader;
     }
 
+    @Cacheable("getAllDepartments")
     public List<Department> getAllDepartments() {
 
         List<Department> resultList = new LinkedList<>();
@@ -55,6 +57,7 @@ public class ScheduleService {
         return resultList;
     }
 
+    @Cacheable("getAllGroupsByDepartment")
     public List<Group> getAllGroupsByDepartment(Integer depId) {
         List<Group> resultList = new LinkedList<>();
 
@@ -82,6 +85,7 @@ public class ScheduleService {
         return resultList;
     }
 
+    @Cacheable("findScheduleByGroup")
     public List<Schedule> findScheduleByGroup(Integer depId, Integer course,
                                               Integer stream, Integer groupCode,
                                               Integer subGroupCode) {
