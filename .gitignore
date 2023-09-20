@@ -1,6 +1,10 @@
 
 .mvn
-target/
+target/classes
+target/generated-sources
+target/maven-archiver
+target/maven-status
+target/webService-0.0.1-SNAPSHOT
 HELP.md
 mvnw
 mvnw.cmd
