@@ -4,6 +4,8 @@ target/classes
 target/generated-sources
 target/maven-archiver
 target/maven-status
+target/generated-test-sources
+target/test-classes
 target/webService-0.0.1-SNAPSHOT
 HELP.md
 mvnw

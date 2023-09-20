@@ -2,27 +2,27 @@ version: '3.0'
 
 services:
   webserver:
-    build: .
+    build: https://github.com/VitaliyCC/ScheduleWebService.git
     container_name: webservice
     ports:
       - "8088:8088"
-  oracle:
-    image: oracle/database:21.3.0-xe
-    container_name: oracle21
-    ports:
-      - "1521:1521"
-      - "5500:5500"
+
+  postgres:
+    image: postgres
+    container_name: postgres-container
     environment:
-      ORACLE_PWD: booble34
+      POSTGRES_PASSWORD: postgress
+      POSTGRES_USER: postgres
+    ports:
+      - "5432:5432"
     volumes:
-      - ./data:\oraclDB
+         - ./data:\oraclDB
   app:
-    build: C:\Users\Vitalii\IdeaProjects\OnlineLearningKRSavostian
+    build:  https://github.com/VitaliyCC/OnlineLearningApp.git
     container_name: app
     ports:
       - "8080:8080"
     depends_on:
-      - oracle
+      - postgres
       - webserver
-    environment:
-      TZ: Europe/Kiev
+
